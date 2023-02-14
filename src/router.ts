@@ -5,6 +5,7 @@ import {
   createProduct,
   updateProductName,
   deleteProduct,
+  getOneProduct,
 } from "./handlers/product";
 import {
   getUpdates,
@@ -17,6 +18,8 @@ const router = Router();
 
 // Product
 router.get("/product", getProducts);
+router.get("/product/:id", getOneProduct);
+
 router.post(
   "/product",
   body("name").isString(),

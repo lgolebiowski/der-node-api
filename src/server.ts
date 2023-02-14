@@ -17,4 +17,13 @@ app.get("/", (req, res) => {
 app.post("/signup", createNewUser);
 app.post("/signin", signIn);
 
+app.get("/", (err, req, res, next) => {
+  console.log(err);
+  next(new Error('uncaught before?"'));
+});
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.json({ message: "There was an error here" });
+});
 export default app;
